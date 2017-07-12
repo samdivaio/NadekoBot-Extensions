@@ -7,14 +7,14 @@ cd "$root/NadekoBot/src/NadekoBot/Modules/Administration/Commands"
 
 echo ""
 
-wget -N link
+wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.55.6/makeover-patch1/LogCommand.cs
 echo ""
 
-wget -N link
+wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.55.6/makeover-patch1/SelfCommands.cs
 echo ""
 
 cd "$root/NadekoBot/src/NadekoBot/Modules/Utility"
-wget -N link
+wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.55.6/makeover-patch1/Utility.cs
 echo ""
 
 cd "$root/NadekoBot"
