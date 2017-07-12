@@ -1,5 +1,5 @@
 ## Music fix for NadekoBot 1.55.6+
------
+
 #### Fixes Audio bug after first song.
 - Affecting Android and Web Browsers.
 - Temporary fix until the issue is resolved by Discord.
