@@ -319,7 +319,7 @@ namespace NadekoBot.Services.Music
                                         Stop();
                                         Exited = true;
                                         Unpause();
-
+                                        Queue.Clear();
                                         OnCompleted = null;
                                         OnPauseChanged = null;
                                         OnStarted = null;
