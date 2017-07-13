@@ -316,13 +316,8 @@ namespace NadekoBot.Services.Music
                                     _log.Info("Stopping because repeatplaylist is disabled");
                                     lock (locker)
                                     {
-                                        Stop();
-                                        Exited = true;
-                                        Unpause();
+                                        //Stop();
                                         Queue.Clear();
-                                        OnCompleted = null;
-                                        OnPauseChanged = null;
-                                        OnStarted = null;
                                     }
                                 }
                                 else
