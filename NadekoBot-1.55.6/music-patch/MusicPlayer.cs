@@ -316,8 +316,7 @@ namespace NadekoBot.Services.Music
                                     _log.Info("Stopping because repeatplaylist is disabled");
                                     lock (locker)
                                     {
-                                        //Stop();
-                                        Queue.Clear();
+                                        Stop();
                                     }
                                 }
                                 else
@@ -430,8 +429,7 @@ namespace NadekoBot.Services.Music
                 if (!Stopped)
                     if (!RepeatPlaylist && Queue.IsLast()) // if it's the last song in the queue, and repeat playlist is disabled
                     { //stop the queue
-                        //Stop();
-                        Queue.Clear();
+                        Stop();
                         return;
                     }
                     else
@@ -444,12 +442,12 @@ namespace NadekoBot.Services.Music
             }
         }
 
-        public void Stop(bool clearQueue = false)
+        public void Stop(bool clearQueue = true)
         {
             lock (locker)
             {
                 Stopped = true;
-                Queue.ResetCurrent();
+                //Queue.ResetCurrent();
                 if (clearQueue)
                     Queue.Clear();
                 Unpause();
