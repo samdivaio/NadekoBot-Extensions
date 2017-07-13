@@ -446,7 +446,7 @@ namespace NadekoBot.Services.Music
         {
             lock (locker)
             {
-                Stopped = true;
+                //Stopped = true;
                 //Queue.ResetCurrent();
                 if (clearQueue)
                     Queue.Clear();
