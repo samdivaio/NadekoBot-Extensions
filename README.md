@@ -5,7 +5,7 @@
 #### Current available patches:
 
 ##### NadekoBot v1.55.6
-- Audio fix after first song for Discord Android app and Discord Browser users.
+- [Audio fix](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/NadekoBot-1.55.6/music-patch) after first song for Discord Android app and Discord Browser users.
 	- **Update:** Bot now clears the queued songs list (playlist)
 		- if `.stop` command is used.
 		- if the last song of the queue is playing and `.next` command is used.
