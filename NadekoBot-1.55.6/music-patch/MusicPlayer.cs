@@ -326,7 +326,8 @@ namespace NadekoBot.Services.Music
                                     lock (locker)
                                     {
                                         if(!Stopped)
-                                            Queue.Next();
+                                            //Queue.Next();
+                                            Queue.Clear();
                                     }
                                 }
                             }
