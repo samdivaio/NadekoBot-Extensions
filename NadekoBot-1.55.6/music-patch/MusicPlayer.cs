@@ -326,8 +326,7 @@ namespace NadekoBot.Services.Music
                                     lock (locker)
                                     {
                                         if(!Stopped)
-                                            //Queue.Next();
-                                            Queue.Clear();
+                                            Queue.Next();
                                     }
                                 }
                             }
@@ -431,7 +430,8 @@ namespace NadekoBot.Services.Music
                 if (!Stopped)
                     if (!RepeatPlaylist && Queue.IsLast()) // if it's the last song in the queue, and repeat playlist is disabled
                     { //stop the queue
-                        Stop();
+                        //Stop();
+                        Queue.Clear();
                         return;
                     }
                     else
