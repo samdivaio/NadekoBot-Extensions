@@ -1,5 +1,7 @@
 ## Makeover Patch-1 for NadekoBot 1.55.6+
 
+[**(Officially added to NadekoBot)**](https://github.com/Kwoth/NadekoBot/pull/1397)
+
 #### Changes the looks of:
 - `sclist` Startup commands list.
 
