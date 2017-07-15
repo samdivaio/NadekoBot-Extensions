@@ -6,7 +6,7 @@
 
 ##### NadekoBot v1.55.6
 
-- [Audio fix for Discord Android app and Discord Browser users who can't hear any sound after the first song and only `.d` fixes it for the next song.](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/NadekoBot-1.55.6/music-patch)
+- [**Audio fix for Discord Android app and Discord Browser users** who can't hear any sound after the first song and only `.d` fixes it for the next song.](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/NadekoBot-1.55.6/music-patch)
 	- This patch makes the bot leave the voice channel after each song, fixing the issue for Android app and web browser users.
 	- **Update:** Bot now clears the queued songs list (playlist)
 		- if `.stop` command is used.
