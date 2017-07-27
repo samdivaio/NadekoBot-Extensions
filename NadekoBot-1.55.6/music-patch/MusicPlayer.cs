@@ -188,11 +188,13 @@ namespace NadekoBot.Services.Music
                         _log.Info("Got Audio client");
                         if (ac == null)
                         {
-                            _log.Info("Can't join");
-                            await Task.Delay(900, cancelToken);
+                            _log.Info("Can't join, check perms or its probably discord vc issue. Destroying, try again.");
+                            //await Task.Delay(900, cancelToken);
                             // just wait some time, maybe bot doesn't even have perms to join that voice channel, 
                             // i don't want to spam connection attempts
-                            continue;
+                            //continue;
+                            await Destroy();
+                            return;
                         }
                         pcm = ac.CreatePCMStream(AudioApplication.Music, bufferMillis: 500);
                         _log.Info("Created pcm stream");
