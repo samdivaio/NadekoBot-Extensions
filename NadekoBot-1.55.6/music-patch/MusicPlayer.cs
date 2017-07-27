@@ -311,15 +311,13 @@ namespace NadekoBot.Services.Music
                                         }
                                     }
                                 }
-                                //else if (queueCount - 1 == data.Index && !RepeatPlaylist && !manualSkip)
-                                else if (queueCount - 1 == data.Index && !RepeatPlaylist)
+                                else if (queueCount - 1 == data.Index && !RepeatPlaylist && !manualSkip)
                                 {
                                     _log.Info("Stopping because repeatplaylist is disabled");
                                     lock (locker)
                                     {
                                         Stop();
                                     }
-                                    await Destroy();
                                 }
                                 else
                                 {
@@ -432,19 +430,15 @@ namespace NadekoBot.Services.Music
                     if (!RepeatPlaylist && Queue.IsLast()) // if it's the last song in the queue, and repeat playlist is disabled
                     { //stop the queue
                         Stop();
-
-                        OnCompleted = null;
-                        OnPauseChanged = null;
-                        OnStarted = null;
                         return;
                     }
                     else
                         Queue.Next(skipCount - 1);
                 else
                     Queue.CurrentIndex = 0;
-                    Stopped = false;
-                    CancelCurrentSong();
-                    Unpause();
+                Stopped = false;
+                CancelCurrentSong();
+                Unpause();
             }
         }
 
