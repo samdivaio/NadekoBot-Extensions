@@ -162,6 +162,7 @@ namespace NadekoBot.Services.Music
                 }
                 if (data.Song != null)
                 {
+                    await Leave();
                     _log.Info("Starting");
                     AudioOutStream pcm = null;
                     SongBuffer b = null;
@@ -577,16 +578,7 @@ namespace NadekoBot.Services.Music
         public async Task Leave()
         {
             _log.Info("Leaving");
-            lock (locker)
-            {
-                //Stop();
-                //Exited = true;
-                //Unpause();
-
-                //OnCompleted = null;
-                //OnPauseChanged = null;
-                //OnStarted = null;
-            }
+            
             var ac = _audioClient;
             if (ac != null)
                 await ac.StopAsync();

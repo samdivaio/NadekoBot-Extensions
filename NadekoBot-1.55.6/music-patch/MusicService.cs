@@ -106,8 +106,8 @@ namespace NadekoBot.Services.Music
 
                         try
                         {
-                            await mp.Leave();
-                            await Task.Delay(200);
+                            //await mp.Leave();
+                            //await Task.Delay(200);
                             lastFinishedMessage = await mp.OutputTextChannel.EmbedAsync(new EmbedBuilder().WithOkColor()
                                     .WithAuthor(eab => eab.WithName(GetText("finished_song")).WithMusicIcon())
                                     .WithDescription(song.PrettyName)
