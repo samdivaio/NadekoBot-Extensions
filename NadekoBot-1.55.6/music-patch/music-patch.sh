@@ -15,6 +15,11 @@ wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1
 echo ""
 echo "MusicService.cs downloaded."
 
+cd "$root/NadekoBot/src/NadekoBot/Modules/Music"
+wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.55.6/music-patch/Music.cs
+echo ""
+echo "Music.cs downloaded."
+
 cd "$root/NadekoBot"
 dotnet restore
 dotnet build --configuration Release

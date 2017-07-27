@@ -12,3 +12,4 @@
 #### Files changed:
 - `NadekoBot\src\NadekoBot\Services\Music\MusicPlayer.cs`
 - `NadekoBot\src\NadekoBot\Services\Music\MusicService.cs`
+- `NadekoBot\src\NadekoBot\Modules\Music`
