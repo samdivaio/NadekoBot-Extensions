@@ -584,6 +584,8 @@ namespace NadekoBot.Services.Music
             var ac = _audioClient;
             if (ac != null)
                 await ac.StopAsync();
+            else
+                return;
         }
 
         public bool ToggleShuffle()
