@@ -11,9 +11,6 @@ echo ""
 wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.55.6/music-patch/MusicPlayer.cs
 echo ""
 echo "MusicPlayer.cs downloaded."
-wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.55.6/music-patch/MusicService.cs
-echo ""
-echo "MusicService.cs downloaded."
 
 cd "$root/NadekoBot"
 dotnet restore
