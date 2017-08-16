@@ -16,7 +16,7 @@
 	- [**NadekoBot v1.6.4**](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/NadekoBot-1.6.4/music-patch)
 		- `wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.6.4/music-patch/music-patch.sh && bash music-patch.sh`
 	- [**NadekoBot v1.7**](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/NadekoBot-1.7/music-patch)
-		- **NOTE:** v1.7 no longer requires old stop function to clear the queued songs with the addition of new function called [`songautoremoval / sad`](https://github.com/Kwoth/NadekoBot/commit/fe3770270e96015ff47595034c4ba1d5bd692cfb) which serves the similar purpose.
+		- **NOTE:** v1.7 no longer requires old stop function to clear the queued songs with the addition of new function called [`songautodelete / sad`](https://github.com/Kwoth/NadekoBot/commit/fe3770270e96015ff47595034c4ba1d5bd692cfb) which serves the similar purpose.
 		- `wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/NadekoBot-1.7/music-patch/music-patch.sh && bash music-patch.sh`
 	- Run the bot without auto update using `LinuxAIO.sh`
 
