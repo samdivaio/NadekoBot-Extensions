@@ -468,11 +468,11 @@ namespace NadekoBot.Modules.Music.Common
             }
         }
 
-        public void Stop(bool clearQueue = false)
+        public void Stop(bool clearQueue = true)
         {
             lock (locker)
             {
-                Stopped = true;
+                //Stopped = true;
                 //Queue.ResetCurrent();
                 if (clearQueue)
                     Queue.Clear();
