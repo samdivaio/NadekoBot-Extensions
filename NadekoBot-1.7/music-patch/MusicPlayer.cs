@@ -605,7 +605,6 @@ namespace NadekoBot.Modules.Music.Common
             _log.Info("Leaving");
             lock (locker)
             {
-                Exited = true;
                 Unpause();
                 OnPauseChanged = null;
             }
