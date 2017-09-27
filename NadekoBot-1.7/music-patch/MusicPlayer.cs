@@ -130,7 +130,7 @@ namespace NadekoBot.Modules.Music.Common
                     : new TimeSpan(songs.Sum(s => s.TotalTime.Ticks));
             }
         }
-            
+
 
         public MusicPlayer(MusicService musicService, IGoogleApiService google, IVoiceChannel vch, ITextChannel output, float volume)
         {
@@ -288,7 +288,7 @@ namespace NadekoBot.Modules.Music.Common
                                     {
                                         _log.Info("Loading related song");
                                         await _musicService.TryQueueRelatedSongAsync(data.Song, OutputTextChannel, VoiceChannel);
-                                        if(!AutoDelete)
+                                        if (!AutoDelete)
                                             Queue.Next();
                                     }
                                     catch
@@ -338,7 +338,7 @@ namespace NadekoBot.Modules.Music.Common
                                     lock (locker)
                                     {
                                         if (!Stopped)
-                                            if(!AutoDelete)
+                                            if (!AutoDelete)
                                                 Queue.Next();
                                     }
                                 }
@@ -603,12 +603,15 @@ namespace NadekoBot.Modules.Music.Common
         public async Task Leave()
         {
             _log.Info("Leaving");
-
+            lock (locker)
+            {
+                Exited = true;
+                Unpause();
+                OnPauseChanged = null;
+            }
             var ac = _audioClient;
             if (ac != null)
                 await ac.StopAsync();
-            else
-                return;
         }
 
         public bool ToggleShuffle()
