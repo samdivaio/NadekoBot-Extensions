@@ -9,8 +9,8 @@ using NadekoBot.Extensions;
 using System.Diagnostics;
 using NadekoBot.Common.Collections;
 using NadekoBot.Modules.Music.Services;
-using NadekoBot.Services;
-using NadekoBot.Services.Database.Models;
+using NadekoBot.Core.Services;
+using NadekoBot.Core.Services.Database.Models;
 
 namespace NadekoBot.Modules.Music.Common
 {
@@ -91,6 +91,7 @@ namespace NadekoBot.Modules.Music.Common
                 _fairPlay = value;
             }
         }
+        public bool AutoDelete { get; set; }
         public uint MaxPlaytimeSeconds { get; set; }
 
 
@@ -141,11 +142,8 @@ namespace NadekoBot.Modules.Music.Common
             this._musicService = musicService;
             this._google = google;
 
-            _log.Info("Initialized");
-
             _player = new Thread(new ThreadStart(PlayerLoop));
             _player.Start();
-            _log.Info("Loop started");
         }
 
         private async void PlayerLoop()
@@ -256,10 +254,17 @@ namespace NadekoBot.Modules.Music.Common
 
                         int queueCount;
                         bool stopped;
+                        int currentIndex;
                         lock (locker)
                         {
                             queueCount = Queue.Count;
                             stopped = Stopped;
+                            currentIndex = Queue.CurrentIndex;
+                        }
+
+                        if (AutoDelete && !RepeatCurrentSong && !RepeatPlaylist && data.Song != null)
+                        {
+                            Queue.RemoveSong(data.Song);
                         }
 
                         if (!manualIndex && (!RepeatCurrentSong || manualSkip))
@@ -279,7 +284,8 @@ namespace NadekoBot.Modules.Music.Common
                                     {
                                         _log.Info("Loading related song");
                                         await _musicService.TryQueueRelatedSongAsync(data.Song, OutputTextChannel, VoiceChannel);
-                                        Queue.Next();
+                                        if(!AutoDelete)
+                                            Queue.Next();
                                     }
                                     catch
                                     {
@@ -327,8 +333,9 @@ namespace NadekoBot.Modules.Music.Common
                                     _log.Info("Next song");
                                     lock (locker)
                                     {
-                                        if(!Stopped)
-                                            Queue.Next();
+                                        if (!Stopped)
+                                            if(!AutoDelete)
+                                                Queue.Next();
                                     }
                                 }
                             }
@@ -373,7 +380,6 @@ namespace NadekoBot.Modules.Music.Common
                     }
                     newVoiceChannel = false;
 
-                    _log.Info("Get current user");
                     var curUser = await VoiceChannel.Guild.GetCurrentUserAsync();
                     if (curUser.VoiceChannel != null)
                     {
@@ -423,6 +429,8 @@ namespace NadekoBot.Modules.Music.Common
             {
                 if (Exited)
                     return;
+                if (AutoDelete && index >= Queue.CurrentIndex && index > 0)
+                    index--;
                 Queue.CurrentIndex = index;
                 manualIndex = true;
                 Stopped = false;

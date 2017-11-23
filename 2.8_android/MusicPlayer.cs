@@ -9,8 +9,8 @@ using NadekoBot.Extensions;
 using System.Diagnostics;
 using NadekoBot.Common.Collections;
 using NadekoBot.Modules.Music.Services;
-using NadekoBot.Services;
-using NadekoBot.Services.Database.Models;
+using NadekoBot.Core.Services;
+using NadekoBot.Core.Services.Database.Models;
 
 namespace NadekoBot.Modules.Music.Common
 {
@@ -130,6 +130,7 @@ namespace NadekoBot.Modules.Music.Common
                     : new TimeSpan(songs.Sum(s => s.TotalTime.Ticks));
             }
         }
+            
 
         public MusicPlayer(MusicService musicService, IGoogleApiService google, IVoiceChannel vch, ITextChannel output, float volume)
         {
@@ -141,11 +142,8 @@ namespace NadekoBot.Modules.Music.Common
             this._musicService = musicService;
             this._google = google;
 
-            _log.Info("Initialized");
-
             _player = new Thread(new ThreadStart(PlayerLoop));
             _player.Start();
-            _log.Info("Loop started");
         }
 
         private async void PlayerLoop()
@@ -165,6 +163,7 @@ namespace NadekoBot.Modules.Music.Common
                 }
                 if (data.Song != null)
                 {
+                    await Leave();
                     _log.Info("Starting");
                     AudioOutStream pcm = null;
                     SongBuffer b = null;
@@ -382,7 +381,6 @@ namespace NadekoBot.Modules.Music.Common
                     }
                     newVoiceChannel = false;
 
-                    _log.Info("Get current user");
                     var curUser = await VoiceChannel.Guild.GetCurrentUserAsync();
                     if (curUser.VoiceChannel != null)
                     {
@@ -592,6 +590,19 @@ namespace NadekoBot.Modules.Music.Common
                 OnCompleted = null;
                 OnPauseChanged = null;
                 OnStarted = null;
+            }
+            var ac = _audioClient;
+            if (ac != null)
+                await ac.StopAsync();
+        }
+
+        public async Task Leave()
+        {
+            _log.Info("Leaving");
+            lock (locker)
+            {
+                Unpause();
+                OnPauseChanged = null;
             }
             var ac = _audioClient;
             if (ac != null)
