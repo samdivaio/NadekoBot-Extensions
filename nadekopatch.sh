@@ -26,7 +26,7 @@ else
 		else
 			if [ $choice -eq 3 ] ; then
 				echo ""
-				wget -N wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/logs/patch.sh && bash "$root/patch.sh"
+				wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/logs/patch.sh && bash "$root/patch.sh"
 				echo ""
 				bash "$root/nadekopatch.sh"
 			else
