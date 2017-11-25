@@ -69,6 +69,9 @@ else
 					choice=7
 				fi
 			fi
+			fi
+			fi
+			fi
 		fi
 	fi
 done
