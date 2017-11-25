@@ -3,13 +3,16 @@
 echo "Welcome to NadekoBot Patch."
 root=$(pwd)
 echo ""
-choice=4
+choice=7
 	echo "1. Normal Music Stop function."
 	echo "2. Normal Music Stop with Android Fix."
 	echo "3. Log cosmetic patch."
-	echo "4. Exit"
-	echo -n "Choose to Download or [4] to Exit"
-while [ $choice -eq 4 ]; do
+	echo "4. Moderators only require kick permission patch."
+	echo "5. Log commands only require Owner and no administration permission patch."
+	echo "6. Log commands only require administration permission and not Owner patch."
+	echo "7. Exit"
+	echo -n "Choose to Download or [7] to Exit"
+while [ $choice -eq 7 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 
@@ -30,7 +33,25 @@ else
 				echo ""
 				bash "$root/nadekopatch.sh"
 			else
-				if [ $choice -eq 4 ] ; then
+			if [ $choice -eq 4 ] ; then
+				echo ""
+				wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/moderators/patch.sh && bash "$root/patch.sh"
+				echo ""
+				bash "$root/nadekopatch.sh"
+			else
+			if [ $choice -eq 5 ] ; then
+				echo ""
+				wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/no_admin_log/patch.sh && bash "$root/patch.sh"
+				echo ""
+				bash "$root/nadekopatch.sh"
+			else
+			if [ $choice -eq 6 ] ; then
+				echo ""
+				wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/no_owner_log/patch.sh && bash "$root/patch.sh"
+				echo ""
+				bash "$root/nadekopatch.sh"
+			else
+				if [ $choice -eq 7 ] ; then
 					echo ""
 					echo "Exiting..."
 					cd "$root"
@@ -40,9 +61,12 @@ else
 					echo "1. Normal Music Stop function."
 					echo "2. Normal Music Stop with Android Fix."
 					echo "3. Log cosmetic patch."
-					echo "4. Exit"
-					echo -n "Choose to Download or [4] to Exit."
-					choice=4
+					echo "4. Moderators only require kick permission patch."
+					echo "5. Log commands only require Owner and no administration permission patch."
+					echo "6. Log commands only require administration permission and not Owner patch."
+					echo "7. Exit"
+					echo -n "Choose to Download or [7] to Exit."
+					choice=7
 				fi
 			fi
 		fi
