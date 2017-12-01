@@ -10,7 +10,7 @@ choice=7
 	echo "4. Moderators only require kick permission patch."
 	echo "5. Log commands only require Owner and no administration permission patch."
 	echo "6. Log commands only require administration permission and not Owner patch."
-	echo "7. Exit and run linuxAIO"
+	echo "7. Exit"
 	echo -n "Choose to Download or [7] to Exit"
 while [ $choice -eq 7 ]; do
 read choice
@@ -53,10 +53,9 @@ else
 			else
 				if [ $choice -eq 7 ] ; then
 					echo ""
-					echo "Starting NadekoBot linuxAIO..."
+					echo "Exiting..."
 					cd "$root"
 					exit 0
-					bash linuxAIO.sh
 				else
 					clear
 					echo "1. Normal Music Stop function."
@@ -65,7 +64,7 @@ else
 					echo "4. Moderators only require kick permission patch."
 					echo "5. Log commands only require Owner and no administration permission patch."
 					echo "6. Log commands only require administration permission and not Owner patch."
-					echo "7. Exit and run linuxAIO"
+					echo "7. Exit"
 					echo -n "Choose to Download or [7] to Exit."
 					choice=7
 				fi
