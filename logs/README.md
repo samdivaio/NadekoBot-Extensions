@@ -10,4 +10,4 @@ and few more.
 
 ![img1](https://cdn.discordapp.com/attachments/280681784767807488/383290229014134784/log2.PNG)
 
-(Screenshot sample by **Gremagol#2402**)
+(Screenshot by **Gremagol#2402**)
