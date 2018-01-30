@@ -126,7 +126,7 @@ namespace NadekoBot.Modules.Administration
 
                         embed.AddField(x => x
                             .WithName(name)
-                            .WithValue(w.Reason));
+                            .WithValue(w.Reason.TrimTo(1020)));
                     }
                 }
 
@@ -473,7 +473,7 @@ namespace NadekoBot.Modules.Administration
                             Type = BlacklistType.User,
                         }));
                     //clear their currencies
-                    uow.Currency.RemoveFromMany(found.Select(x => (long)x).ToList());
+                    uow.DiscordUsers.RemoveFromMany(found.Select(x => (long)x).ToList());
                     uow.Complete();
                 }
 
