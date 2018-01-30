@@ -359,6 +359,9 @@ namespace NadekoBot.Modules.Administration.Services
                         case PunishmentAction.Ban:
                             punishment = "⛔️ " + GetText(logChannel.Guild, "banned_pl").ToUpperInvariant();
                             break;
+                        case PunishmentAction.RemoveRoles:
+                            punishment = "⛔️ " + GetText(logChannel.Guild, "remove_roles_pl").ToUpperInvariant();
+                            break;
                     }
 
                     var embed = new EmbedBuilder().WithAuthor(eab => eab.WithName($"🛡 Anti-{protection}"))
@@ -440,13 +443,13 @@ namespace NadekoBot.Modules.Administration.Services
                                 .WithCurrentTimestamp().WithFooter(efb => efb.WithText($"ID: {after.Id}"));
                                 await logChannel.EmbedAsync(embed).ConfigureAwait(false);
                         }
-                        else if (before.Game?.Name != after.Game?.Name)
+                        else if (before.Activity?.Name != after.Activity?.Name)
                         {
-                            /*var str = $"👾`{PrettyCurrentTime(after.Guild)}`👤__**{after.Username}**__ is now playing **{after.Game?.Name ?? "-"}**.";
+                            /*var str = $"👾`{PrettyCurrentTime(after.Guild)}`👤__**{after.Username}**__ is now playing **{after.Activity?.Name ?? "-"}**.";
                             PresenceUpdates.AddOrUpdate(logChannel,
                                 new List<string>() { str }, (id, list) => { list.Add(str); return list; });*/
 
-                            var str = $"{after.Username} is now playing 🎮 `{after.Game?.Name ?? "-"}`";
+                            var str = $"{after.Username} is now playing 🎮 `{after.Activity?.Name ?? "-"}`";
                             if (Uri.IsWellFormedUriString(after.RealAvatarUrl(), UriKind.Absolute))
                             {
                                 var embed = new EmbedBuilder().WithOkColor().WithCurrentTimestamp().WithAuthor(eab => eab.WithName(str).WithIconUrl(after.RealAvatarUrl()))
@@ -864,14 +867,16 @@ namespace NadekoBot.Modules.Administration.Services
                     ITextChannel logChannel;
                     if ((logChannel = await TryGetLogChannel(channel.Guild, logSetting, LogType.MessageDeleted)) == null || logChannel.Id == msg.Id)
                         return;
+
+                    var resolvedMessage = msg.Resolve(userHandling: TagHandling.FullName);
                     var embed = new EmbedBuilder()
                         .WithOkColor()
                         .WithTitle("🗑 " + GetText(logChannel.Guild, "msg_del", ((ITextChannel)msg.Channel).Name))
                         .WithDescription(msg.Author.ToString() + " | " + msg.Author.Id.ToString())
-                        .AddField(efb => efb.WithName(GetText(logChannel.Guild, "content")).WithValue(string.IsNullOrWhiteSpace(msg.Content) ? "-" : msg.Resolve(userHandling: TagHandling.FullName)).WithIsInline(false))
+                        .AddField(efb => efb.WithName(GetText(logChannel.Guild, "content")).WithValue(string.IsNullOrWhiteSpace(resolvedMessage) ? "-" : resolvedMessage).WithIsInline(false))
                         //.AddField(efb => efb.WithName("Id").WithValue(msg.Id.ToString()).WithIsInline(false))
                         //.WithFooter(efb => efb.WithText(CurrentTime(channel.Guild)));
-                        .WithCurrentTimestamp().WithFooter(efb => efb.WithText($"ID: {msg.Id.ToString()}"));
+                        .WithCurrentTimestamp().WithFooter(efb => efb.WithText($"✉ ID: {msg.Id.ToString()}"));
                     if (msg.Attachments.Any())
                         embed.AddField(efb => efb.WithName(GetText(logChannel.Guild, "attachments")).WithValue(string.Join(", ", msg.Attachments.Select(a => a.Url))).WithIsInline(false));
 
