@@ -1,4 +1,4 @@
-- **Audio fix for Discord Android app and Discord Browser users** who can't hear any sound after the first song and only `.d` fixes it for the next song.
+- **(Update: Officially Fixed) Audio fix for Discord Android app and Discord Browser users** who can't hear any sound after the first song and only `.d` fixes it for the next song.
 	- This patch makes the bot leave the voice channel after each song, fixing the issue for Android app and web browser users.
 	- **Update:** Bot now clears the queued songs list (playlist)
 		- if `.stop` command is used.
