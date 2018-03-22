@@ -346,8 +346,6 @@ namespace NadekoBot.Modules.Music.Common
                                     _log.Info("Stopping because repeatplaylist is disabled");
                                     lock (locker)
                                     {
-                                        pcm.Dispose();
-                                        b.Dispose();
                                         Stop();
                                     }
                                 }
@@ -358,11 +356,7 @@ namespace NadekoBot.Modules.Music.Common
                                     {
                                         if (!Stopped)
                                             if (!AutoDelete)
-                                            {
-                                                pcm.Dispose();
-                                                b.Dispose();
                                                 Queue.Next();
-                                            }
                                     }
                                 }
                             }
