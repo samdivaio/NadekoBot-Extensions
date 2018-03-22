@@ -277,9 +277,14 @@ namespace NadekoBot.Modules.Music.Common
                             currentIndex = Queue.CurrentIndex;
                         }
 
-                        if (AutoDelete && !RepeatCurrentSong && !RepeatPlaylist && data.Song != null)
+                        if (!Autoplay && !RepeatCurrentSong && !RepeatPlaylist && data.Song != null)
                         {
+                            AutoDelete = true;
                             Queue.RemoveSong(data.Song);
+                        }
+                        else
+                        {
+                            AutoDelete = false;
                         }
 
                         if (!manualIndex && (!RepeatCurrentSong || manualSkip))

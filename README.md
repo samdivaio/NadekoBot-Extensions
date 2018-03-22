@@ -17,6 +17,11 @@
 		- if the last song of the queue is playing and `.next` command is used.
 		- if the the last song of the queue finished playing.
 		- `.q` command will work instantly even after music is stopped after playing the last song or after the use of `.stop` command.
+		
+- [Log Cosmetic Changes](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/logs)
+- [Moderators Only Patch](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/moderators)
+- [Logging Patch // No Admin](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/no_admin_log)
+- [Logging Patch // No Owner](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/no_owner_log)
 
 ##### Linux Users execute the command where you have Nadeko's `LinuxAIO.sh`.
 
