@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Welcome to NadekoBot Patch."
+echo "Welcome to NadekoBot v2.17+ Patch."
 root=$(pwd)
 echo ""
 choice=7
