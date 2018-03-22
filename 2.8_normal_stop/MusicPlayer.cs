@@ -175,11 +175,13 @@ namespace NadekoBot.Modules.Music.Common
                     manualSkip = false;
                     manualIndex = false;
                 }
+                AudioOutStream pcm = null;
+                SongBuffer b = null;
                 if (data.Song != null)
                 {
+                    b.Dispose();
+                    pcm.Dispose();
                     _log.Info("Starting");
-                    AudioOutStream pcm = null;
-                    SongBuffer b = null;
                     try
                     {
                         b = new SongBuffer(await data.Song.Uri(), "", data.Song.ProviderType == MusicType.Local);
