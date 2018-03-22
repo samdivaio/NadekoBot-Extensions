@@ -1,5 +1,4 @@
-﻿
-#if !GLOBAL_NADEKO
+﻿#if !GLOBAL_NADEKO
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
