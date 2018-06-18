@@ -25,7 +25,7 @@ namespace NadekoBot.Modules.Administration.Services
         private string PrettyCurrentTime(IGuild g)
         {
             var time = DateTime.UtcNow;
-            if(g != null)
+            if (g != null)
                 time = TimeZoneInfo.ConvertTime(time, _tz.GetTimeZoneOrUtc(g.Id));
             return $"【{time:HH:mm:ss}】";
         }
@@ -144,15 +144,15 @@ namespace NadekoBot.Modules.Administration.Services
                             //.WithDescription($"{before.Username}#{before.Discriminator} | {before.Id}")
                             .AddField(fb => fb.WithName("Old Name").WithValue($"{before.Username}#{before.Discriminator}").WithIsInline(true))
                             .AddField(fb => fb.WithName("New Name").WithValue($"{after.Username}#{before.Discriminator}").WithIsInline(true));
-                            //.WithFooter(fb => fb.WithText(CurrentTime(g)))
-                            //.WithOkColor();
+                        //.WithFooter(fb => fb.WithText(CurrentTime(g)))
+                        //.WithOkColor();
                     }
                     else if (before.AvatarId != after.AvatarId)
                     {
                         embed.WithTitle("👥" + GetText(g, "avatar_changed"));
-                            //.WithDescription($"{before.Username}#{before.Discriminator} | {before.Id}")
-                            //.WithFooter(fb => fb.WithText(CurrentTime(g)))
-                            //.WithOkColor();
+                        //.WithDescription($"{before.Username}#{before.Discriminator} | {before.Id}")
+                        //.WithFooter(fb => fb.WithText(CurrentTime(g)))
+                        //.WithOkColor();
 
                         if (Uri.IsWellFormedUriString(before.RealAvatarUrl(), UriKind.Absolute))
                             embed.WithThumbnailUrl(before.RealAvatarUrl());
@@ -440,7 +440,7 @@ namespace NadekoBot.Modules.Administration.Services
 
                             var embed = new EmbedBuilder().WithOkColor().WithCurrentTimestamp().WithAuthor(eab => eab.WithName(str).WithIconUrl(after.RealAvatarUrl()))
                                 .WithCurrentTimestamp().WithFooter(efb => efb.WithText($"ID: {after.Id}"));
-                                await logChannel.EmbedAsync(embed).ConfigureAwait(false);
+                            await logChannel.EmbedAsync(embed).ConfigureAwait(false);
                         }
                         else if (before.Activity?.Name != after.Activity?.Name)
                         {
@@ -956,7 +956,7 @@ namespace NadekoBot.Modules.Administration.Services
             VoicePresence,
             VoicePresenceTTS,
             UserMuted
-        };
+        }
 
         private async Task<ITextChannel> TryGetLogChannel(IGuild guild, LogSetting logSetting, LogType logChannelType)
         {
