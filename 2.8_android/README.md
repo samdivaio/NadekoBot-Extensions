@@ -9,3 +9,5 @@
 		- if the last song of the queue is playing and `.next` command is used.
 		- if the the last song of the queue finished playing.	
 	- Run the bot without auto update using `LinuxAIO.sh`
+	
+	`UPDATE: Works with v2.23.0`

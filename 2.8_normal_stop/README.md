@@ -10,3 +10,4 @@
 		- if the the last song of the queue finished playing.
 		- `.q` command will work instantly even after music is stopped after playing the last song or after the use of `.stop` command.
 	
+	`UPDATE: Works with v2.23.0`
