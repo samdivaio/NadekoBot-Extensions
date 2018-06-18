@@ -11,4 +11,5 @@ can function without Owner and only require Server Administrator (Ability) Permi
 
 File changed:
  - `NadekoBot/NadekoBot.Core/Modules/Administration/LogCommands.cs`
- 
+
+`UPDATE: Works with v2.23.0`

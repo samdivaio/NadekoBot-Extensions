@@ -12,3 +12,4 @@ can function without Server Administrator (Ability) Permission and only require 
 File changed:
  - `NadekoBot/NadekoBot.Core/Modules/Administration/LogCommands.cs`
  
+`UPDATE: Works with v2.23.0`

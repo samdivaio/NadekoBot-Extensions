@@ -14,3 +14,5 @@
 	
 - File changed: 
 	- `NadekoBot/NadekoBot.Core/Modules/Administration/UserPunishCommands.cs`
+	
+`UPDATE: Works with v2.23.0`
