@@ -31,8 +31,8 @@
 - [Logging Patch // No Admin](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/no_admin_log)
 - [Logging Patch // No Owner](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/no_owner_log)
 
-##### Linux Users execute the command where you have Nadeko's `LinuxAIO.sh`.
+##### Linux Users execute the command in the folder/directory you have `linuxAIO.sh` in.
 
 - `wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/nadekoext.sh && bash nadekoext.sh`
-- Run the bot without auto update option using `LinuxAIO.sh`
+- **Run** the bot **without auto update option** using `LinuxAIO.sh`
 	
