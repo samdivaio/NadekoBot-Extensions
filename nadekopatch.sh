@@ -6,7 +6,7 @@ echo ""
 choice=7
 	echo "1. Normal Music Stop function."
 	echo "2. Normal Music Stop with Android Fix."
-	echo "3. Log cosmetic patch."
+	echo "3. Log cosmetic patch. (ITS OUTDATED wait for Space Unicorn)"
 	echo "4. Moderators only require kick permission patch."
 	echo "5. Log commands only require Owner and no administration permission patch."
 	echo "6. Log commands only require administration permission and not Owner patch."
