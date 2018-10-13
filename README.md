@@ -9,8 +9,6 @@
 
 #### Current available patches:
 
-- **`(Update: Officially Broken again)`** 
-
 **UPDATE:** [Fixes the bot flickering after first song issue.](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/2.8_android)
 
 **OLD:** Audio fix for Discord Android app and Discord Browser users who can't hear any sound after the first song and only `.d` fixes it for the next song.
