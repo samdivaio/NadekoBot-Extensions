@@ -4,7 +4,9 @@
 
 #### Current available patches:
 
-- **`(Update: Officially Fixed)`** [Audio fix for Discord Android app and Discord Browser users](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/2.8_android) who can't hear any sound after the first song and only `.d` fixes it for the next song.
+- **`(Update: Officially Broken again)`** 
+UPDATE: [Fixes the bot flickering after first song issue.](https://github.com/samdivaio/NadekoBot-Extensions/tree/master/2.8_android)
+OLD: Audio fix for Discord Android app and Discord Browser users who can't hear any sound after the first song and only `.d` fixes it for the next song.
 	- This patch makes the bot leave the voice channel after each song, fixing the issue for Android app and web browser users.
 	- **Update:**
 		- Bot auto deletes previously played songs (like `sad` command) unless:
