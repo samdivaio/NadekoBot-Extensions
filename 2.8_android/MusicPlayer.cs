@@ -176,6 +176,7 @@ namespace NadekoBot.Modules.Music.Common
                 }
                 if (data.Song != null)
                 {
+                    await Leave();
                     _log.Info("Starting");
                     AudioOutStream pcm = null;
                     SongBuffer b = null;
@@ -379,7 +380,7 @@ namespace NadekoBot.Modules.Music.Common
             }
         }
 
-        private async Task<IAudioClient> GetAudioClient(bool reconnect = true)
+        private async Task<IAudioClient> GetAudioClient(bool reconnect = false)
         {
             if (_audioClient == null ||
                 _audioClient.ConnectionState != ConnectionState.Connected ||
@@ -640,6 +641,19 @@ namespace NadekoBot.Modules.Music.Common
             var ac = _audioClient;
             if (ac != null)
                 await ac.StopAsync().ConfigureAwait(false);
+        }
+
+        public async Task Leave()
+        {
+            _log.Info("Leaving");
+            lock (locker)
+            {
+                Unpause();
+                OnPauseChanged = null;
+            }
+            var ac = _audioClient;
+            if (ac != null)
+                await ac.StopAsync();
         }
 
         public bool ToggleShuffle()
