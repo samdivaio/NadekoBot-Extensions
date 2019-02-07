@@ -1,12 +1,12 @@
 #!/bin/sh
 
-echo "Welcome to NadekoBot v2.17+ Patch."
+echo "Welcome to NadekoBot v2.29.3~ Patch."
 root=$(pwd)
 echo ""
 choice=7
 	echo "1. Normal Music Stop function."
 	echo "2. Normal Music Stop with Bot flickring fix."
-	echo "3. Log cosmetic patch. (ITS OUTDATED, getting updated soon.)"
+	echo "3. Log cosmetic patch."
 	echo "4. Moderators only require kick permission patch."
 	echo "5. Log commands only require Owner and no administration permission patch."
 	echo "6. Log commands only require administration permission and not Owner patch."
