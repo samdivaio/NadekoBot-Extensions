@@ -12,9 +12,18 @@ and few more.
 
 (Screenshot by **Gremagol#2402**)
 
-![img2](https://cdn.discordapp.com/attachments/326724294061195276/543240485678874624/2.PNG)
-![img3](https://media.discordapp.net/attachments/326724294061195276/543241134458011659/5.PNG)
-![img4](https://cdn.discordapp.com/attachments/326724294061195276/543240488606760991/3.PNG)
-![img5](https://media.discordapp.net/attachments/326724294061195276/543240491886575616/4.PNG)
-![img6](https://media.discordapp.net/attachments/326724294061195276/543240863963283481/1.PNG)
+![img2](https://cdn.discordapp.com/attachments/326724294061195276/543244923663548446/1.PNG)
 
+![img3](https://cdn.discordapp.com/attachments/326724294061195276/543244925966221312/2.PNG)
+
+![img4](https://cdn.discordapp.com/attachments/326724294061195276/543244927308529676/3.PNG)
+
+![img5](https://cdn.discordapp.com/attachments/326724294061195276/543244931536257034/4.PNG)
+
+![img6](https://cdn.discordapp.com/attachments/326724294061195276/543244934661013514/5.PNG)
+
+![img7](https://cdn.discordapp.com/attachments/326724294061195276/543244935764115466/6.PNG)
+
+![img8](https://cdn.discordapp.com/attachments/326724294061195276/543244941694992384/8.PNG)
+
+![img9](https://cdn.discordapp.com/attachments/326724294061195276/543244937676849152/7.PNG)
