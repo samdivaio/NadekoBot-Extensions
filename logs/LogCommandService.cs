@@ -187,17 +187,17 @@ namespace NadekoBot.Modules.Administration.Services
 
                     if (before.Username != after.Username)
                     {
-                        embed.WithTitle("🔰 " + GetText(g, "username_changed"))
-                            .WithDescription($"{before.Username}#{before.Discriminator}")
-                            .AddField(fb => fb.WithName("Old Name").WithValue($"{before.Username}#{before.Discriminator}").WithIsInline(true))
-                            .AddField(fb => fb.WithName("New Name").WithValue($"{after.Username}#{before.Discriminator}").WithIsInline(true));
+                    embed.WithTitle("🔰 " + GetText(g, "username_changed"))
+                        .WithDescription($"{before.Username}#{before.Discriminator}")
+                        .AddField(fb => fb.WithName("Old Name").WithValue($"{before.Username}#{before.Discriminator}").WithIsInline(false))
+                        .AddField(fb => fb.WithName("New Name").WithValue($"{after.Username}#{before.Discriminator}").WithIsInline(false));
                         //.WithFooter(fb => fb.WithText(CurrentTime(g)))
                         //.WithOkColor();
                     }
                     else if (before.AvatarId != after.AvatarId)
                     {
                         embed.WithTitle("🖼️ " + GetText(g, "avatar_changed"))
-                        .WithDescription($"{before.Username}#{before.Discriminator}");
+                        .WithDescription($"{before.Username}#{before.Discriminator}\n 🆕");
                         //.WithFooter(fb => fb.WithText(CurrentTime(g)))
                         //.WithOkColor();
                         var bav = before.RealAvatarUrl();
@@ -548,9 +548,9 @@ namespace NadekoBot.Modules.Administration.Services
 
                         if (before.Nickname != after.Nickname)
                         {
-                            embed.WithTitle(GetText(logChannel.Guild, "nick_change"))
+                            embed.WithTitle("🔰 " + GetText(logChannel.Guild, "nick_change"))
                                 .AddField(efb => efb.WithName(GetText(logChannel.Guild, "old_nick")).WithValue($"{before.Nickname}#{before.Discriminator}"))
-                                .AddField(efb => efb.WithName("🔰 " + GetText(logChannel.Guild, "new_nick")).WithValue($"{after.Nickname}#{after.Discriminator}"));
+                                .AddField(efb => efb.WithName(GetText(logChannel.Guild, "new_nick")).WithValue($"{after.Nickname}#{after.Discriminator}"));
 
                             await logChannel.EmbedAsync(embed).ConfigureAwait(false);
                         }
