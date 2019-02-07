@@ -12,4 +12,9 @@ and few more.
 
 (Screenshot by **Gremagol#2402**)
 
-`UPDATE: Works with v2.23.0`
+![img2](https://cdn.discordapp.com/attachments/326724294061195276/543240485678874624/2.PNG)
+![img3](https://media.discordapp.net/attachments/326724294061195276/543241134458011659/5.PNG)
+![img4](https://cdn.discordapp.com/attachments/326724294061195276/543240488606760991/3.PNG)
+![img5](https://media.discordapp.net/attachments/326724294061195276/543240491886575616/4.PNG)
+![img6](https://media.discordapp.net/attachments/326724294061195276/543240863963283481/1.PNG)
+
