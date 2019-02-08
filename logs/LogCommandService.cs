@@ -182,7 +182,7 @@ namespace NadekoBot.Modules.Administration.Services
                     if ((logChannel = await TryGetLogChannel(g, logSetting, LogType.UserUpdated).ConfigureAwait(false)) == null)
                         return;
                     //var embed = new EmbedBuilder();
-                    var embed = new EmbedBuilder().WithOkColor().WithAuthor(eab => eab.WithName(after.Username).WithIconUrl(before.RealAvatarUrl().ToString()))
+                    var embed = new EmbedBuilder().WithOkColor().WithAuthor(eab => eab.WithName(after.Username).WithIconUrl(after.RealAvatarUrl().ToString()))
                             .WithCurrentTimestamp().WithFooter(efb => efb.WithText($"ID: {after.Id}"));
 
                     if (before.Username != after.Username)
@@ -196,7 +196,7 @@ namespace NadekoBot.Modules.Administration.Services
                     }
                     else if (before.AvatarId != after.AvatarId)
                     {
-                        embed.WithTitle("🖼️ " + GetText(g, "avatar_changed"))
+                        embed.WithTitle(GetText(g, "avatar_changed"))
                         .WithDescription($"{before.Username}#{before.Discriminator}\n 🆕");
                         //.WithFooter(fb => fb.WithText(CurrentTime(g)))
                         //.WithOkColor();
@@ -213,11 +213,7 @@ namespace NadekoBot.Modules.Administration.Services
                         return;
                     }
                     
-
-
-                    /*var embed = new EmbedBuilder();
-
-                    if (before.Username != after.Username)
+                    /*if (before.Username != after.Username)
                     {
                         embed.WithTitle("👥 " + GetText(g, "username_changed"))
                             .WithDescription($"{before.Username}#{before.Discriminator} | {before.Id}")
@@ -248,10 +244,7 @@ namespace NadekoBot.Modules.Administration.Services
 
                     await logChannel.EmbedAsync(embed).ConfigureAwait(false);
                 }
-                catch
-                {
-                    // ignored
-                }
+                catch (Exception ex) { _log.Warn(ex); }
             });
             return Task.CompletedTask;
         }
