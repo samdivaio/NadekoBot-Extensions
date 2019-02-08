@@ -7,7 +7,7 @@ Logging commands such as
 - `logevents`
 - `log` 
 
-can function without **Bot Ownership** and only require Server **Administrator** (Ability) **Permission**.
+can function without Bot Ownership and **only require Server Administrator (Ability) Permission**.
 
 File changed:
  - `NadekoBot/NadekoBot.Core/Modules/Administration/LogCommands.cs`
