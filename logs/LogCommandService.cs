@@ -189,7 +189,7 @@ namespace NadekoBot.Modules.Administration.Services
                     {
                     embed.WithTitle("🔰 " + GetText(g, "username_changed"))
                         .WithDescription($"{before.Username}#{before.Discriminator}")
-                        .AddField(fb => fb.WithName("Old Name").WithValue($"{before.Username}#{before.Discriminator}").WithIsInline(false))
+                        //.AddField(fb => fb.WithName("Old Name").WithValue($"{before.Username}#{before.Discriminator}").WithIsInline(false))
                         .AddField(fb => fb.WithName("New Name").WithValue($"{after.Username}#{before.Discriminator}").WithIsInline(false));
                         //.WithFooter(fb => fb.WithText(CurrentTime(g)))
                         //.WithOkColor();
