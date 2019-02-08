@@ -12,7 +12,8 @@ ECHO 3.Log cosmetic patch
 ECHO 4.Moderators only require kick permission patch
 ECHO 5.Log commands only require Owner and no administration permission patch
 ECHO 6.Log commands only require administration permission and not Owner patch
-ECHO 7.Exit
+ECHO 7.Know more about NadekoBot Extensions (Opens website)
+ECHO 8.Exit
 ECHO.
 ECHO Make sure you are running NadekoInstaller.bat as Administrator!
 ECHO.
@@ -24,7 +25,8 @@ IF "%M%"=="3" GOTO logvisual
 IF "%M%"=="4" GOTO mods
 IF "%M%"=="5" GOTO noadminlog
 IF "%M%"=="6" GOTO noownerlog
-IF "%M%"=="7" GOTO exit
+IF "%M%"=="7" GOTO know
+IF "%M%"=="8" GOTO exit
 ECHO Invalid selection ("%M%")
 GOTO :MENU
 
@@ -69,6 +71,16 @@ powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/samdiva
 timeout /t 5
 CALL patch.bat
 GOTO End
+
+:know
+CLS
+ECHO.
+ECHO Check your browser to know more about available NadekoBot Extensions.
+ECHO.
+start https://github.com/samdivaio/NadekoBot-Extensions
+ECHO Press any key to go back to menu...
+pause >nul 2>&1
+GOTO MENU
 
 :End
 cls
