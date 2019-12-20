@@ -2,6 +2,11 @@
 
 ### Unoffical patches for [NadekoBot](https://github.com/Kwoth/NadekoBot)
 
+#### Windows 7+ Users
+
+- Read the [Source Guide for Windows](https://nadekobot.readthedocs.io/en/latest/guides/From%20Source/).
+- Use the option `15. [NEW] NadekoBot Extensions`
+
 #### Linux Users execute the command in the folder/directory you have `linuxAIO.sh` in.
 
 - `wget -N https://github.com/samdivaio/NadekoBot-Extensions/raw/master/nadekoext.sh && bash nadekoext.sh`
